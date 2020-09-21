@@ -1,0 +1,22 @@
+.but {
+font-size: 50px;
+margin: 100px;
+margin-left: 35%;
+border-bottom: 3px solid black;
+width: 500px;
+}
+.but:hover {
+color: #514F4F;
+border-bottom: 3px solid #514F4F;
+}
+
+.gamers-block {
+width:20%;
+margin-left: 40%;
+border: 2px solid #514F4F;
+border-radius: 7px;
+}
+
+.gamer-usernames {
+margin-bottom: 10px;
+}

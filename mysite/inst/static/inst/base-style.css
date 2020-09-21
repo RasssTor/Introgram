@@ -1,0 +1,55 @@
+body {
+background: #E8E8E8;
+}
+
+.top-space {
+margin: 100px 0;
+visibility: hidden;
+}
+
+.head-container {
+z-index: 1000;
+position: fixed;
+top: 0;
+left: 0;
+width: 100%;
+height: 45px;
+background: #B0B0B0;
+}
+
+.menu-button {
+font-family: Sanchez;
+font-style: normal;
+font-weight: normal;
+font-size: 17px;
+line-height: 250%;
+color: #514F4F;
+border-bottom: #B0B0B0 solid 3px;
+}
+
+.menu-button:hover {
+border-bottom: #514F4F solid 3px;
+background: #A1A1A1;
+
+}
+
+.space {
+width: 60%;
+}
+
+.menu {
+width: 100%;
+height:43px;
+}
+
+.space-more {
+width: 70%;
+}
+
+.menu:hover a {
+text-decoration: none;
+}
+
+a {
+text-decoration:none;
+}

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}{% endblock %}</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'inst/base-style.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'users/bootstrap.css' %}">
+
+</head>
+<body>
+    <div class="head-container">
+        <table class="menu">
+                <tr>
+                    <td class="logo"><div align="center" class=""><img src="{% static 'inst/logo.png' %}"></div></td>
+                    {% if user.is_authenticated %}
+                    <td class="space"></td>
+                        <td>
+                            <a href="{% url 'news' %}"><div align="center" class="menu-button menu">News</div></a></td>
+                        <td>
+                            <a href="{% url 'profile' %}"><div align="center" class="menu-button menu">Profile</div></a></td>
+                        <td>
+                            <a href="{% url 'logout' %}"><div align="center" class="menu-button menu">Log out</div></a></td>
+                    {% else %}
+                    <td class="space-more"></td>
+                    <td>
+                        <a href="{% url 'login' %}"><div align="center" class="menu-button menu">Log in</div></a></td>
+                    <td>
+                        <a href="{% url 'register' %}"><div align="center" class="menu-button menu">Register</div></a></td>
+                    {% endif %}
+                </tr>
+        </table>
+    </div>
+    <div class="top-space"></div>
+    <div class="content">
+        {% block content %}
+        {% endblock %}
+    </div>
+</body>
+</html>

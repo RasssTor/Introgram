@@ -1,0 +1,106 @@
+{% extends 'inst/base.html' %}
+{% block content %}
+{% load static %}
+{% load count_like %}
+
+<link rel="stylesheet" type="text/css" href="{% static 'users/news-style.css' %}">
+    <script src="https://code.jquery.com/jquery-3.1.0.min.js"></script>
+    <script src="{% static 'users/my_ajax.js' %}"></script>
+<span class="disappear" id="user-name">{{user.username}}</span>
+<span class="disappear" id="main-photo-url">{{user.profile.main_image.url}}</span>
+<h1 align="center">NEWS</h1>
+<div class="search-container">
+    <form method="GET" action="{% url 'search' %}" id="search-form">
+        {% csrf_token %}
+
+        <input class="search" id="search-text" name="hash">
+        <button type="submit" form="search-form">Поиск</button>
+    </form>
+    <a class="reset" href="{% url 'news' %}">Сбросить теги</a>
+</div>
+<div class="posts">
+    {% for post in posts %}
+    <div class="post">
+        <div class="post-head">
+
+            <img src="{{post.profile.main_image.url}}" class="small-avatar">
+            <a href="{% url 'other_profile' post.profile.user.username %}">{{ post.profile.user.username }}</a>
+        </div>
+        <hr>
+        <div class="cropped">
+        <img src="{{ post.image.url }}" class="post-image"></div>
+                <div class="like-container">
+                <button
+                        {% if user.username in post.liked_by %}
+                        class="like like-button"
+                        {% else %}
+                        class="unlike like-button"
+                        {% endif %}
+                        onclick="like({{post.id}});" id="lk{{post.id}}" type="button">{% csrf_token %}
+                </button>
+
+        </div>
+         <span class="likes_count" id="count{{post.id}}">{{post.liked_by|count}}</span>
+        <hr>
+        <span class="description-text">{{post.description}}</span><br>
+        {% for tag in post.tags.names %}
+            #{{tag}}
+        {% endfor %}
+        <hr>
+<div id="comments{{post.id}}" class="comments">
+    {% for com in comments %}
+    {% if com.post_id == post.id %}
+        <div class="comment">
+            <div class="comment-author"><img src="{{com.author.profile.main_image.url }}" class="very-small-avatar">
+            <a href="{% url 'other_profile' com.author.username %}" class="comment-username">{{ com.author.username }}</a>
+            </div>
+            <div class="comment-text">{{com.text}}</div>
+        </div>
+    {% endif %}
+    {% endfor %}
+</div>
+    <form method="POST">
+        {% csrf_token %}
+        <input type="text" id="text{{post.id}}" name="text">
+        <button value="{{post.id}}" name="id" id="id_com_button{{post.id}}" type="button" onclick="comment({{post.id}});" onkeyup="13" class="comment-button" >↑</button>
+    </form>
+
+
+    {% block javascript %}
+    <script src="https://code.jquery.com/jquery-3.1.0.min.js"></script>
+    <script src="{% static 'users/my_ajax.js' %}"></script>
+{% endblock %}
+
+
+        {% for tag in tags %}
+    {{t.name}}
+    {% endfor %}
+    <hr>
+    </div>
+{% endfor %}
+    {% if is_paginated %}
+<div align="center">
+  <ul class="pagination">
+    {% if page_obj.has_previous %}
+      <li><a href="?page={{ page_obj.previous_page_number }}">&laquo;</a></li>
+    {% else %}
+      <li class="disabled"><span>&laquo;</span></li>
+    {% endif %}
+    {% for i in paginator.page_range %}
+      {% if page_obj.number == i %}
+        <li class="active"><span>{{ i }} <span class="sr-only">(current)</span></span></li>
+      {% else %}
+        <li><a href="?page={{ i }}">{{ i }}</a></li>
+      {% endif %}
+    {% endfor %}
+    {% if page_obj.has_next %}
+      <li><a href="?page={{ page_obj.next_page_number }}">&raquo;</a></li>
+    {% else %}
+      <li class="disabled"><span>&raquo;</span></li>
+    {% endif %}
+  </ul>
+    </div>
+</div>
+
+{% endif %}
+{% endblock %}

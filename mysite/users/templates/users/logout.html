@@ -1,0 +1,12 @@
+{% extends "inst/base.html" %}
+{% load static %}
+{% block content %}
+<link rel="stylesheet" type="text/css" href="{% static 'users/register-style.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'users/bootstrap.css' %}">
+    <h2>You have been logged out</h2>
+    <div class="border-top pt-3">
+        <small class="text-muted">
+            <a href="{% url 'login' %}">Log In</a>
+        </small>
+    </div>
+{% endblock %}

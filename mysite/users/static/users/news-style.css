@@ -1,0 +1,206 @@
+body {
+background: #E8E8E8;
+}
+
+.top-space {
+margin: 60px 0;
+visibility: hidden;
+}
+
+.head-container {
+position: fixed;
+top: 0;
+left: 0;
+width: 100%;
+height: 45px;
+background: #B0B0B0;
+}
+
+.menu-button {
+font-family: Sanchez;
+font-style: normal;
+font-weight: normal;
+font-size: 17px;
+line-height: 250%;
+color: #514F4F;
+border-bottom: #B0B0B0 solid 3px;
+}
+
+.menu-button:hover {
+border-bottom: #514F4F solid 3px;
+background: #A1A1A1;
+
+}
+
+.space {
+width: 60%;
+}
+
+.menu {
+width: 100%;
+height:43px;
+}
+
+.space-more {
+width: 70%;
+}
+
+.menu:hover a {
+text-decoration: none;
+}
+
+a {
+text-decoration:none;
+}
+.posts {
+margin: 0 30%;
+width: 40%;
+}
+
+
+.post-image {
+object-fit: cover;
+width: 100%;
+height: 600px;
+border-radius: 10px;
+}
+
+
+
+
+
+.post {
+padding: 10px;
+margin: 10px;
+border: 2px solid #E6E6E6;
+border-radius: 10px;
+background: #F3F3F3;
+}
+
+.small-avatar {
+width: 50px;
+height: 50px;
+border-radius: 100%;
+}
+
+.comment-button {
+width:30px;
+height:10px;
+position:relative;
+left:-30px;
+border-radius: 50%;
+border: none;
+}
+
+
+
+.comment-username {
+font-size:12px;
+}
+
+.very-small-avatar {
+width: 30px;
+height: 30px;
+border-radius: 100%;
+}
+.like-button {
+border: none;
+outline: none;
+}
+
+.like {
+  position: relative;
+  left: 10px;
+  width: 60%;
+  height: 100%;
+  background: #902CFF;
+
+/* Скругляем верхние углы */
+  -webkit-border-radius: 50px 50px 0 0;
+  -moz-border-radius: 50px 50px 0 0;
+  border-radius: 50px 50px 0 0;
+/* Определяем угол наклона */
+  -webkit-transform: rotate(315deg);
+  -moz-transform: rotate(315deg);
+  -ms-transform: rotate(315deg);
+  -o-transform: rotate(315deg);
+  transform: rotate(315deg);
+}
+
+.like:before {
+  position: absolute;
+  width: 40px;
+  height: 24px;
+  left: 0;
+  bottom: 0;
+  content: "";
+  background: #902CFF;
+  -webkit-border-radius: 50px 50px 0 0;
+  -moz-border-radius: 50px 50px 0 0;
+  border-radius: 0 50px 50px 0;
+}
+
+.like-container {
+display: inline-block;
+margin-top: 10px;
+width: 40px;
+height: 40px;
+}
+
+.likes_count {
+font-size: 27px;
+line-height: 150%;
+margin-left: 15px;
+margin-top: 20px;
+}
+
+.description-text {
+font-family: Vera;
+font-style: normal;
+font-weight: normal;
+font-size: 21px;
+color: #414141;
+}
+
+.unlike {
+position: relative;
+left: 10px;
+width: 60%;
+height: 100%;
+border: solid 2px;
+  box-shadow: -1px 0px 2px #444;
+/* Скругляем верхние углы */
+  -webkit-border-radius: 50px 50px 0 0;
+  -moz-border-radius: 50px 50px 0 0;
+  border-radius: 50px 50px 0 0;
+/* Определяем угол наклона */
+  -webkit-transform: rotate(315deg);
+  -moz-transform: rotate(315deg);
+  -ms-transform: rotate(315deg);
+  -o-transform: rotate(315deg);
+  transform: rotate(315deg);
+}
+
+.unlike:before {
+  position: absolute;
+  width: 40px;
+  height: 24px;
+  left: -2px;
+  bottom: -2px;
+
+border: solid 2px;
+content: "";
+transform: rotate(deg);
+border-radius: 0 50px 50px 0;
+}
+
+
+.like-button,
+.like-button:active,
+.like-button:focus {
+    outline: none;
+}
+
+.disappear {
+display: none;
+}

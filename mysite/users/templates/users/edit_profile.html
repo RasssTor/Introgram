@@ -1,0 +1,39 @@
+{% extends 'inst/base.html' %}
+{% block content %}
+<h1>edit profile page</h1>
+<form method="POST" action="{% url 'update'%}">
+    {% csrf_token %}
+<div id="div_id_email" class="form-group inline">
+	<label for="id_email">Почта:</label>
+	<input type="email" name="email" autofocus class="textinput textInput form-control add-param-email" required id="id_email" placeholder="{{user.email}}" align="right">
+</div>
+<div id="div_id_description" class="form-group">
+	<label for="id_description">Биография:</label>
+<div class>
+<input type="text" name="description" autofocus class="textinput textInput form-control add-param-description" required id="id_description">
+</div></div>
+<div id="div_id_website" class="form-group">
+	<label for="id_website">Сайт:</label>
+<div class>
+<input type="url" name="website" autofocus class="textinput textInput form-control add-param-website" required id="id_website">
+</div></div>
+<div id="div_id_name" class="form-group">
+	<label for="id_name">Имя:</label>
+<div class>
+<input type="text" name="name" autofocus class="textinput textInput form-control add-param-name" required id="id_name">
+</div></div>
+<div id="div_id_surname" class="form-group">
+	<label for="id_surname">Фамилия:</label>
+<div class>
+<input type="text" name="surname" autofocus class="textinput textInput form-control add-param-surname" required id="id_surname">
+</div></div>
+<div id="div_id_age" class="form-group">
+	<label for="id_age">Возраст:</label>
+<div class>
+<input type="number" name="age" autofocus class="textinput textInput form-control add-param-age" required id="id_age">
+</div></div>
+<div class="form-group">
+	<button class="btn btn-outline-info" type="submit">Подтвердить изменения</button>
+</div>
+</form>
+{% endblock content %}
