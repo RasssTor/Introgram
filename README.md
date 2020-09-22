@@ -3,6 +3,6 @@ Like Instagram But Better
 
 ---
 
-### You can check this site using [this link](3.9.59.118:8000)
+### You can check this site using [this link](http://3.8.59.118:8000)
 
 ---
